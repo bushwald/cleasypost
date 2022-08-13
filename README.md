@@ -7,18 +7,18 @@ very much a WIP
 ## Usage
 
 ``` clojure
-(def adr
+(def origin-adr
   {:address
    {:name "Steve Brule"
     :street1 "1849 Geary Blvd"
-    :street2 "Apt 4"
+    :street2 "Apt C"
     :city "San Francisco"
     :state "NY"
     :zip "94115"
     :country "US"
     :phone "4155555555"}})
 
-(def fr-adr
+(def destination-adr
   {:address
    {:name "bushwald"
     :street1 "16 Arcade"
@@ -26,32 +26,32 @@ very much a WIP
     :state "TN"
     :zip "37219"
     :country "US"
-    :phone "7185555555"}})
+    :phone "7185555555"}
+   :verify true})
 
 (def prcl
   {:parcel
-   {:length 2
-    :width 2
-    :height 2
+   {:length 4
+    :width 4
+    :height 6.2
     :weight 32}})
 
-(def shpmnt {:to_address (:address adr)
-             :from_address (:address fr-adr)
+(def shpmnt {:to_address (:address origin-adr)
+             :from_address (:address destination-adr)
              :parcel (:parcel prcl)})
 
 (def token "EZ299nnTK2ffkdsefjlsiejfake_tokenR1piAarlSa6vA234RsA")
 
 (def ep-shpmnt (create-shipment {:shipment shpmnt} token))
 
-(clojure.pprint/pprint (:postage_label
-                        (buy-shipment
-                         {:shipment
-                          (assoc shpmnt
-                                 :service "Priority"
-                                 :carrier_accounts ["ca_e61a814d26014f7a90b663a5a8053d18"])}
-                         token)))
+(def one-call-buy-shpmnt
+  {:shipment (merge shpmnt
+                    {:service "Priority"
+                     :carrier_accounts ["ca_e61a814d26testa90b663a5zz053d18"]})})
 
-(:postage_label (buy-shipment {:rate (get (:rates ep-shpmnt) 0)} token)))
+(:postage_label (buy-shipment one-call-buy-shpmnt token))
+
+(:postage_label (buy-shipment {:rate (get-lowest-rate (:rates ep-shpmnt))} token))
 ```
 
 FIXME: write usage documentation!
