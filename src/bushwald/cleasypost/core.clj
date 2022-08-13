@@ -48,7 +48,7 @@
    (easypost-request (ep-schema/validate-insurance insurance) "insurances" token)))
 
 (defmulti buy-shipment
-  (fn [buy-map & args] (if (contains? buy-map :shipment) :shipment :rate)))
+  (fn [buy-map & args] (first (keys buy-map))))
 
 (defmethod buy-shipment :rate
   ([buy-map] (buy-shipment buy-map get-env-token))
