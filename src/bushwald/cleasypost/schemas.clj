@@ -5,7 +5,7 @@
             [malli.transform :as mt]
             [sci.core :as sci]))
 
-;; the schemas here are meant to represent actual user inputs.
+;; The schemas here are meant to represent actual user inputs.
 ;; Properties that are filled in in an EasyPost response are not included.
 
 (def schema-transformer

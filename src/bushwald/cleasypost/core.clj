@@ -66,3 +66,23 @@
 
 (defn get-lowest-rate [rates]
   (first (sort-by #(new BigDecimal (:rate %)) rates)))
+
+(defn refund-shipment
+  ([shipment-id] (refund-shipment shipment-id get-env-token))
+  ([shipment-id token]
+   (easypost-request {} (str "shipments/" shipment-id "/refund") token)))
+
+(defn insure-shipment
+  ([shipment-id] (insure-shipment shipment-id get-env-token))
+  ([shipment-id token]
+   (easypost-request {} (str "shipments/" shipment-id "/insure") token)))
+
+(defn re-rate-shipment
+  ([shipment-id] (re-rate-shipment shipment-id get-env-token))
+  ([shipment-id token]
+   (easypost-request {} (str "shipments/" shipment-id "/rerate") token)))
+
+(defn retrieve-rate
+  ([rate-id] (retrieve-rate rate-id get-env-token))
+  ([rate-id token]
+   (easypost-request {} (str "rates/" rate-id) token)))
