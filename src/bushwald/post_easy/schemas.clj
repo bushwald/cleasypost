@@ -1,4 +1,4 @@
-(ns bushwald.cleasypost.schemas
+(ns bushwald.post-easy.schemas
   (:require [clojure.string :as str]
             [malli.core :as m]
             [malli.error :as me]

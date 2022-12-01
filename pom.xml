@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.clojars.bushwald</groupId>
-  <artifactId>cleasypost</artifactId>
+  <artifactId>post-easy</artifactId>
   <version>0.1.0-SNAPSHOT</version>
-  <name>bushwald/cleasypost</name>
+  <name>bushwald/post-easy</name>
   <description>Clojure client for the EasyPost web service</description>
-  <url>https://github.com/bushwald/cleasypost</url>
+  <url>https://github.com/bushwald/post-easy</url>
   <licenses>
     <license>
       <name>Eclipse Public License</name>
@@ -19,9 +19,9 @@
     </developer>
   </developers>
   <scm>
-    <url>https://github.com/bushwald/cleasypost</url>
-    <connection>scm:git:git://github.com/bushwald/cleasypost.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/bushwald/cleasypost.git</developerConnection>
+    <url>https://github.com/bushwald/post-easy</url>
+    <connection>scm:git:git://github.com/bushwald/post-easy.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/bushwald/post-easy.git</developerConnection>
     <tag>v0.1.0-SNAPSHOT</tag>
   </scm>
   <dependencies>

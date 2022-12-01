@@ -1,5 +1,5 @@
-(ns bushwald.cleasypost.core
-  (:require [bushwald.cleasypost.schemas :as ep-schema]
+(ns bushwald.post-easy.core
+  (:require [bushwald.post-easy.schemas :as ep-schema]
             [clj-http.client :as http]
             [clojure.data.json :as json]))
 

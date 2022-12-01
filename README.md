@@ -1,4 +1,4 @@
-# cleasypost
+# Post Easy
 
 Clojure client for the [EasyPost](https://easypost.com) web service
 

@@ -1,6 +1,6 @@
-(ns bushwald.cleasypost.core-test
+(ns bushwald.post-easy.core-test
   (:require [clojure.test :refer :all]
-            [bushwald.cleasypost.core :as easypost]))
+            [bushwald.post-easy.core :as easypost]))
 
 (deftest a-test
   (testing "FIXME, I fail."
