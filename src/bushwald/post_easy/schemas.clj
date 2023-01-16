@@ -165,6 +165,38 @@
 (defn validate-insurance [insurance-map]
   (get-validated-map insurance-request insurance-map))
 
+(def fee
+  [:map
+   [:type non-empty-string?]
+   [:amount non-empty-string?]
+   [:charged {:optional true :default false} boolean?]
+   [:refunded {:optional true :default false} boolean?]
+   ])
+
+(def tracker
+  [:map
+   [:mode
+    {:optional true :default "test"}
+    [:and non-empty-string? mode-str?]]
+   [:tracking_code non-empty-string?]
+   [:status {:optional true} non-empty-string?]
+   [:signed_by {:optional true} non-empty-string?]
+   [:weight {:optional true} float?]
+   [:estimated_delivery_date {:optional true} iso-date-string?]
+   [:shipment_id {:optional true} non-empty-string?]
+   [:carrier {:optional true} non-empty-string?]
+   [:public_url {:optional true} non-empty-string?]
+   [:fees {:optional true} fee]
+   ])
+
+(def tracker-request
+  [:map
+   [:tracker tracker]])
+
+(defn validate-tracker [tracker-map]
+  (get-validated-map tracker-request tracker-map))
+
+
 ;; Shipment components
 ;; Options
 (def cod-methods ["CASH", "CHECK", "MONEY_ORDER"])
